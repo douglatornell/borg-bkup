@@ -6,7 +6,7 @@ BORG=/usr/bin/borg
 BORG_REPO=/media/doug/kudu_backup/borg-kudu
 
 # Read repository passphrase from file:
-export BORG_PASSCOMMAND="cat ${HOME}/.borg-pasphrase"
+export BORG_PASSCOMMAND="cat ${HOME}/.borg-passphrase"
 
 # some helpers and error handling:
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
@@ -27,7 +27,7 @@ ${BORG} create                                \
     --compression lz4                         \
                                               \
     --exclude-caches                          \
-    --exclude "${HOME}/.borg-pasphrase"       \
+    --exclude "${HOME}/.borg-passphrase"      \
     --exclude "${HOME}/.dbus"                 \
     --exclude "${HOME}/Downloads"             \
     --exclude "${HOME}/.vagrant.d"            \
