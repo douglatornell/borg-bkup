@@ -3,7 +3,7 @@
 BORG=/usr/bin/borg
 
 # Avoid the need to give repo path/URL on the commandline:
-BORG_REPO=/media/doug/kudu_backup/borg-kudu
+export BORG_REPO=/media/doug/kudu_backup/borg-kudu
 
 # Read repository passphrase from file:
 export BORG_PASSCOMMAND="cat ${HOME}/.borg-passphrase"

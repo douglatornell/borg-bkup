@@ -3,7 +3,7 @@
 BORG=/usr/bin/borg
 
 # Avoid the need to give repo path/URL on the commandline:
-BORG_REPO=/media/doug/niko_backup/borg-niko
+export BORG_REPO=/media/doug/niko_backup/borg-niko
 
 # Read repository passphrase from file:
 export BORG_PASSCOMMAND="cat ${HOME}/.borg-passphrase"
@@ -44,7 +44,7 @@ ${BORG} create                                \
     --exclude "${WAREHOUSE}/miniconda3"       \
     --exclude "${WAREHOUSE}/Zeal"             \
                                               \
-    ${BORG_REPO}::'{hostname}-{now}'          \
+    ::'{hostname}-{now}'                      \
     ${HOME}                                   \
     ${WAREHOUSE}                              \
 
@@ -65,8 +65,6 @@ ${BORG} prune                       \
     --keep-daily    7               \
     --keep-weekly   4               \
     --keep-monthly  6               \
-                                    \
-    ${BORG_REPO}                    \
 
 prune_exit=$?
 
