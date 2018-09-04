@@ -28,20 +28,21 @@ ${BORG} create                                \
                                               \
     --exclude-caches                          \
     --exclude "${HOME}/.borg-passphrase"      \
-    --exclude "${HOME}/.dbus"                 \
-    --exclude "${HOME}/Downloads"             \
-    --exclude "${HOME}/.vagrant.d"            \
     --exclude "${HOME}/.cache"                \
-    --exclude "${HOME}/snap"                  \
+    --exclude "${HOME}/.dbus"                 \
+    --exclude "${HOME}/.local/lib/python*"    \
     --exclude "${HOME}/.PyCharm*/system"      \
-    --exclude "${WAREHOUSE}/Downloads"        \
-    --exclude "${WAREHOUSE}/conda_envs"       \
-    --exclude "${WAREHOUSE}/VirtualBoxVMs"    \
-    --exclude "${WAREHOUSE}/Mailpile"         \
-    --exclude "${WAREHOUSE}/vidyo"            \
+    --exclude "${HOME}/.vagrant.d"            \
+    --exclude "${HOME}/Downloads"             \
+    --exclude "${HOME}/snap"                  \
     --exclude "${WAREHOUSE}/.Trash-1000"      \
+    --exclude "${WAREHOUSE}/conda_envs"       \
+    --exclude "${WAREHOUSE}/Downloads"        \
     --exclude "${WAREHOUSE}/lost+found"       \
+    --exclude "${WAREHOUSE}/Mailpile"         \
     --exclude "${WAREHOUSE}/miniconda3"       \
+    --exclude "${WAREHOUSE}/VirtualBoxVMs"    \
+    --exclude "${WAREHOUSE}/vidyo"            \
     --exclude "${WAREHOUSE}/Zeal"             \
                                               \
     ::'{hostname}-{now}'                      \

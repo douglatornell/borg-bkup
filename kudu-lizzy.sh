@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# some helpers and error handling:
+info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
+trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
+
+info "Prepareing for for ${HOSTMANE} backup to lizzy"
+
 BORG=/usr/bin/borg
 
 # Avoid the need to give repo path/URL on the commandline:
@@ -8,11 +14,7 @@ export BORG_REPO=lizzy:/media/doug/backup/borg/kudu
 # Read repository passphrase from file:
 export BORG_PASSCOMMAND="cat ${HOME}/.borg-passphrase"
 
-# some helpers and error handling:
-info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
-trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
-
-info "Starting backup"
+info "Starting ${HOSTMANE} backup to lizzy"
 
 # Backup the most important directories into an archive named after
 # the machine this script is currently running on:
@@ -28,20 +30,21 @@ ${BORG} create                                \
                                               \
     --exclude-caches                          \
     --exclude "${HOME}/.borg-passphrase"      \
-    --exclude "${HOME}/.dbus"                 \
-    --exclude "${HOME}/Downloads"             \
-    --exclude "${HOME}/.vagrant.d"            \
     --exclude "${HOME}/.cache"                \
-    --exclude "${HOME}/snap"                  \
+    --exclude "${HOME}/.dbus"                 \
+    --exclude "${HOME}/.local/lib/python*"    \
     --exclude "${HOME}/.PyCharm*/system"      \
-    --exclude "${WAREHOUSE}/Downloads"        \
-    --exclude "${WAREHOUSE}/conda_envs"       \
-    --exclude "${WAREHOUSE}/VirtualBoxVMs"    \
-    --exclude "${WAREHOUSE}/Mailpile"         \
-    --exclude "${WAREHOUSE}/vidyo"            \
+    --exclude "${HOME}/.vagrant.d"            \
+    --exclude "${HOME}/Downloads"             \
+    --exclude "${HOME}/snap"                  \
     --exclude "${WAREHOUSE}/.Trash-1000"      \
+    --exclude "${WAREHOUSE}/conda_envs"       \
+    --exclude "${WAREHOUSE}/Downloads"        \
     --exclude "${WAREHOUSE}/lost+found"       \
+    --exclude "${WAREHOUSE}/Mailpile"         \
     --exclude "${WAREHOUSE}/miniconda3"       \
+    --exclude "${WAREHOUSE}/vidyo"            \
+    --exclude "${WAREHOUSE}/VirtualBoxVMs"    \
                                               \
     ::'{hostname}-{now}'                      \
     ${HOME}                                   \
