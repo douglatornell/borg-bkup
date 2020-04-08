@@ -43,6 +43,7 @@ ${BORG} create                                \
     --exclude "${WAREHOUSE}/lost+found"       \
     --exclude "${WAREHOUSE}/Mailpile"         \
     --exclude "${WAREHOUSE}/miniconda3"       \
+    --exclude "${WAREHOUSE}/snap"             \
     --exclude "${WAREHOUSE}/vidyo"            \
     --exclude "${WAREHOUSE}/VirtualBoxVMs"    \
                                               \
