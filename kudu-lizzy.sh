@@ -34,6 +34,7 @@ ${BORG} create                                \
     --exclude "${HOME}/.dbus"                 \
     --exclude "${HOME}/.local/lib/python*"    \
     --exclude "${HOME}/.PyCharm*/system"      \
+    --exclude "${HOME}/.steam"                \
     --exclude "${HOME}/.vagrant.d"            \
     --exclude "${HOME}/Downloads"             \
     --exclude "${HOME}/snap"                  \
@@ -44,6 +45,7 @@ ${BORG} create                                \
     --exclude "${WAREHOUSE}/Mailpile"         \
     --exclude "${WAREHOUSE}/miniconda3"       \
     --exclude "${WAREHOUSE}/snap"             \
+    --exclude "${WAREHOUSE}/SteamLibrary"     \
     --exclude "${WAREHOUSE}/vidyo"            \
     --exclude "${WAREHOUSE}/VirtualBoxVMs"    \
                                               \
