@@ -4,7 +4,7 @@
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
 trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
-info "Prepareing for for ${HOSTMANE} backup to lizzy"
+info "Preparing for for ${HOSTMANE} backup to lizzy"
 
 BORG=/usr/bin/borg
 
@@ -20,38 +20,41 @@ info "Starting ${HOSTMANE} backup to lizzy"
 # the machine this script is currently running on:
 WAREHOUSE=/media/doug/warehouse
 
-${BORG} create                                \
-    --verbose                                 \
-    --filter AME                              \
-    --list                                    \
-    --stats                                   \
-    --show-rc                                 \
-    --compression auto,lz4                    \
-                                              \
-    --exclude-caches                          \
-    --exclude "${HOME}/.borg-passphrase"      \
-    --exclude "${HOME}/.cache"                \
-    --exclude "${HOME}/.dbus"                 \
-    --exclude "${HOME}/.local/lib/python*"    \
-    --exclude "${HOME}/.PyCharm*/system"      \
-    --exclude "${HOME}/.steam"                \
-    --exclude "${HOME}/.vagrant.d"            \
-    --exclude "${HOME}/Downloads"             \
-    --exclude "${HOME}/snap"                  \
-    --exclude "${WAREHOUSE}/.Trash-1000"      \
-    --exclude "${WAREHOUSE}/conda_envs"       \
-    --exclude "${WAREHOUSE}/Downloads"        \
-    --exclude "${WAREHOUSE}/lost+found"       \
-    --exclude "${WAREHOUSE}/Mailpile"         \
-    --exclude "${WAREHOUSE}/miniconda3"       \
-    --exclude "${WAREHOUSE}/snap"             \
-    --exclude "${WAREHOUSE}/SteamLibrary"     \
-    --exclude "${WAREHOUSE}/vidyo"            \
-    --exclude "${WAREHOUSE}/VirtualBoxVMs"    \
-                                              \
-    ::'{hostname}-{now}'                      \
-    ${HOME}                                   \
-    ${WAREHOUSE}                              \
+${BORG} create                                   \
+    --verbose                                    \
+    --filter AME                                 \
+    --list                                       \
+    --stats                                      \
+    --show-rc                                    \
+    --compression auto,lz4                       \
+                                                 \
+    --exclude-caches                             \
+    --exclude "${HOME}/.borg-passphrase"         \
+    --exclude "${HOME}/.cache"                   \
+    --exclude "${HOME}/.dbus"                    \
+    --exclude "${HOME}/.local/lib/python*"       \
+    --exclude "${HOME}/.local/share/flatpak*"    \
+    --exclude "${HOME}/.local/share/JetBrains"   \
+    --exclude "${HOME}/.PyCharm*/system"         \
+    --exclude "${HOME}/.steam"                   \
+    --exclude "${HOME}/.vagrant.d"               \
+    --exclude "${HOME}/.var"                     \
+    --exclude "${HOME}/Downloads"                \
+    --exclude "${HOME}/snap"                     \
+    --exclude "${WAREHOUSE}/.Trash-1000"         \
+    --exclude "${WAREHOUSE}/conda_envs"          \
+    --exclude "${WAREHOUSE}/Downloads"           \
+    --exclude "${WAREHOUSE}/lost+found"          \
+    --exclude "${WAREHOUSE}/Mailpile"            \
+    --exclude "${WAREHOUSE}/miniconda3"          \
+    --exclude "${WAREHOUSE}/snap"                \
+    --exclude "${WAREHOUSE}/SteamLibrary"        \
+    --exclude "${WAREHOUSE}/vidyo"               \
+    --exclude "${WAREHOUSE}/VirtualBoxVMs"       \
+                                                 \
+    ::'{hostname}-{now}'                         \
+    ${HOME}                                      \
+    ${WAREHOUSE}                                 \
 
 
 backup_exit=$?
