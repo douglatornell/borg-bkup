@@ -20,42 +20,43 @@ info "Starting ${HOSTNAME} backup to lizzy"
 # the machine this script is currently running on:
 WAREHOUSE=/media/doug/warehouse
 
-${BORG} create                                   \
-    --verbose                                    \
-    --filter AME                                 \
-    --list                                       \
-    --stats                                      \
-    --show-rc                                    \
-    --compression auto,lz4                       \
-                                                 \
-    --exclude-caches                             \
-    --exclude "${HOME}/.borg-passphrase"         \
-    --exclude "${HOME}/.cache"                   \
-    --exclude "${HOME}/.dbus"                    \
-    --exclude "${HOME}/.local/lib/python*"       \
-    --exclude "${HOME}/.local/share/flatpak*"    \
-    --exclude "${HOME}/.local/share/JetBrains"   \
-    --exclude "${HOME}/.PyCharm*/system"         \
-    --exclude "${HOME}/.steam"                   \
-    --exclude "${HOME}/.vagrant.d"               \
-    --exclude "${HOME}/.var"                     \
-    --exclude "${HOME}/.vscode"                  \
-    --exclude "${HOME}/Downloads"                \
-    --exclude "${HOME}/snap"                     \
-    --exclude "${WAREHOUSE}/.Trash-1000"         \
-    --exclude "${WAREHOUSE}/conda_envs"          \
-    --exclude "${WAREHOUSE}/Downloads"           \
-    --exclude "${WAREHOUSE}/lost+found"          \
-    --exclude "${WAREHOUSE}/Mailpile"            \
-    --exclude "${WAREHOUSE}/miniconda3"          \
-    --exclude "${WAREHOUSE}/snap"                \
-    --exclude "${WAREHOUSE}/SteamLibrary"        \
-    --exclude "${WAREHOUSE}/vidyo"               \
-    --exclude "${WAREHOUSE}/VirtualBoxVMs"       \
-                                                 \
-    ::'{hostname}-{now}'                         \
-    ${HOME}                                      \
-    ${WAREHOUSE}                                 \
+${BORG} create                                                   \
+    --verbose                                                    \
+    --filter AME                                                 \
+    --list                                                       \
+    --stats                                                      \
+    --show-rc                                                    \
+    --compression auto,lz4                                       \
+                                                                 \
+    --exclude-caches                                             \
+    --exclude "${HOME}/.borg-passphrase"                         \
+    --exclude "${HOME}/.cache"                                   \
+    --exclude "${HOME}/.config/Microsoft/Microsoft Teams/Cache"  \
+    --exclude "${HOME}/.dbus"                                    \
+    --exclude "${HOME}/.local/lib/python*"                       \
+    --exclude "${HOME}/.local/share/flatpak*"                    \
+    --exclude "${HOME}/.local/share/JetBrains"                   \
+    --exclude "${HOME}/.PyCharm*/system"                         \
+    --exclude "${HOME}/.steam"                                   \
+    --exclude "${HOME}/.vagrant.d"                               \
+    --exclude "${HOME}/.var"                                     \
+    --exclude "${HOME}/.vscode"                                  \
+    --exclude "${HOME}/Downloads"                                \
+    --exclude "${HOME}/snap"                                     \
+    --exclude "${WAREHOUSE}/.Trash-1000"                         \
+    --exclude "${WAREHOUSE}/conda_envs"                          \
+    --exclude "${WAREHOUSE}/Downloads"                           \
+    --exclude "${WAREHOUSE}/lost+found"                          \
+    --exclude "${WAREHOUSE}/Mailpile"                            \
+    --exclude "${WAREHOUSE}/miniconda3"                          \
+    --exclude "${WAREHOUSE}/snap"                                \
+    --exclude "${WAREHOUSE}/SteamLibrary"                        \
+    --exclude "${WAREHOUSE}/vidyo"                               \
+    --exclude "${WAREHOUSE}/VirtualBoxVMs"                       \
+                                                                 \
+    ::'{hostname}-{now}'                                         \
+    ${HOME}                                                      \
+    ${WAREHOUSE}                                                 \
 
 
 backup_exit=$?
