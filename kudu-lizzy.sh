@@ -4,7 +4,7 @@
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
 trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
-info "Preparing for for ${HOSTMANE} backup to lizzy"
+info "Preparing for for ${HOSTNAME} backup to lizzy"
 
 BORG=/usr/bin/borg
 
@@ -14,7 +14,7 @@ export BORG_REPO=lizzy:/media/doug/backup/borg/kudu
 # Read repository passphrase from file:
 export BORG_PASSCOMMAND="cat ${HOME}/.borg-passphrase"
 
-info "Starting ${HOSTMANE} backup to lizzy"
+info "Starting ${HOSTNAME} backup to lizzy"
 
 # Backup the most important directories into an archive named after
 # the machine this script is currently running on:
