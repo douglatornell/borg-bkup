@@ -39,6 +39,7 @@ ${BORG} create                                   \
     --exclude "${HOME}/.steam"                   \
     --exclude "${HOME}/.vagrant.d"               \
     --exclude "${HOME}/.var"                     \
+    --exclude "${HOME}/.vscode"                  \
     --exclude "${HOME}/Downloads"                \
     --exclude "${HOME}/snap"                     \
     --exclude "${WAREHOUSE}/.Trash-1000"         \
