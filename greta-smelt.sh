@@ -25,7 +25,7 @@ ${BORG} create                                                   \
     --list                                                       \
     --stats                                                      \
     --show-rc                                                    \
-    --compression auto,zstd                                      \
+    --compression auto,lz4                                       \
                                                                  \
     --exclude-caches                                             \
     --exclude "${HOME}/.borg-passphrase"                         \
