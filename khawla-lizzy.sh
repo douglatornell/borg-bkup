@@ -48,6 +48,7 @@ ${BORG} create                                                   \
     --exclude "${HOME}/Downloads"                                \
     --exclude "${HOME}/mambaforge-pypy3"                         \
     --exclude "${HOME}/snap"                                     \
+    --exclude "${HOME}/VirtualBox VMs"                           \
     --exclude "${WAREHOUSE}/.Trash-1000"                         \
     --exclude "${WAREHOUSE}/Downloads"                           \
     --exclude "${WAREHOUSE}/lost+found"                          \
@@ -55,7 +56,6 @@ ${BORG} create                                                   \
     --exclude "${WAREHOUSE}/snap"                                \
     --exclude "${WAREHOUSE}/SteamLibrary"                        \
     --exclude "${WAREHOUSE}/VirtualBoxVMs"                       \
-                                                                 \
     ::'{hostname}-{now}'                                         \
     ${HOME}                                                      \
     ${WAREHOUSE}                                                 \
