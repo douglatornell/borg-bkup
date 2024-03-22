@@ -18,7 +18,7 @@ info "Starting backup to smelt"
 
 # Backup the most important directories into an archive named after
 # the machine this script is currently running on:
-WAREHOUSE_SHARED=/media/doug/warehouse
+WAREHOUSE_SHARED=/media/doug/warehouse/shared
 
 ${BORG} create                                 \
     --verbose                                  \
