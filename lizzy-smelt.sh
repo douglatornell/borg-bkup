@@ -18,30 +18,48 @@ info "Starting backup to smelt"
 
 # Backup the most important directories into an archive named after
 # the machine this script is currently running on:
-WAREHOUSE_SHARED=/media/doug/warehouse/shared
+WAREHOUSE=/media/doug/warehouse
 
-${BORG} create                                 \
-    --verbose                                  \
-    --filter AME                               \
-    --list                                     \
-    --stats                                    \
-    --show-rc                                  \
-    --compression auto,lz4                     \
-                                               \
-    --exclude-caches                           \
-    --exclude "${HOME}/.borg-passphrase"       \
-    --exclude "${HOME}/.cache"                 \
-    --exclude "${HOME}/.config/lutris"         \
-    --exclude "${HOME}/.local/lib/python*"     \
-    --exclude "${HOME}/.local/share/flatpak*"  \
-    --exclude "${HOME}/.local/share/lutris*"   \
-    --exclude "${HOME}/.local/share/Trash"     \
-    --exclude "${HOME}/.vscode-server"         \
-    --exclude "${HOME}/Downloads"              \
-                                               \
-    ::'{hostname}-{now}'                       \
-    ${HOME}                                    \
-    ${WAREHOUSE_SHARED}                        \
+${BORG} create                                                           \
+    --verbose                                                            \
+    --filter AME                                                         \
+    --list                                                               \
+    --stats                                                              \
+    --show-rc                                                            \
+    --compression auto,lz4                                               \
+                                                                         \
+    --exclude-caches                                                     \
+    --exclude "${HOME}/.borg-passphrase"                                 \
+    --exclude "${HOME}/.cache"                                           \
+    --exclude "${HOME}/.config/lutris"                                   \
+    --exclude "${HOME}/.local/lib/python*"                               \
+    --exclude "${HOME}/.local/share/flatpak*"                            \
+    --exclude "${HOME}/.local/share/lutris*"                             \
+    --exclude "${HOME}/.local/share/Trash"                               \
+    --exclude "${HOME}/.vscode-server"                                   \
+    --exclude "${HOME}/Downloads"                                        \
+    --exclude "${WAREHOUSE}/16.04-home/.ecryptfs"                        \
+    --exclude "${WAREHOUSE}/16.04-home/doug/.cache"                      \
+    --exclude "${WAREHOUSE}/16.04-home/doug/.dbus"                       \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.adobe"                \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.bash_history"         \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.cache"                \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.config"               \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.gconf"                \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.gnupg"                \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.ICEauthority"         \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.local"                \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.macromedia"           \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.mozilla"              \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.thunderbird"          \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.Xauthority"           \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.xsession-errors"      \
+    --exclude "${WAREHOUSE}/16.04-home/latornells/.xsession-errors.old"  \
+                                                                         \
+    ::'{hostname}-{now}'                                                 \
+    ${HOME}                                                              \
+    ${WAREHOUSE}/shared                                                  \
+    ${WAREHOUSE}/16.04-home                                              \
 
 
 backup_exit=$?
