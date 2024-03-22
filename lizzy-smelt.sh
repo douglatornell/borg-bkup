@@ -38,7 +38,6 @@ ${BORG} create                                 \
     --exclude "${HOME}/.local/share/Trash"     \
     --exclude "${HOME}/.vscode-server"         \
     --exclude "${HOME}/Downloads"              \
-    --exclude "${HOME}/Games"                  \
                                                \
     ::'{hostname}-{now}'                       \
     ${HOME}                                    \
