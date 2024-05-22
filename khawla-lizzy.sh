@@ -46,7 +46,7 @@ ${BORG} create                                                   \
     --exclude "${HOME}/.zoom"                                    \
     --exclude "${HOME}/conda_envs"                               \
     --exclude "${HOME}/Downloads"                                \
-    --exclude "${HOME}/mambaforge-pypy3"                         \
+    --exclude "${HOME}/miniforge-pypy3"                          \
     --exclude "${HOME}/snap"                                     \
     --exclude "${HOME}/VirtualBox VMs"                           \
     --exclude "${WAREHOUSE}/.Trash-1000"                         \

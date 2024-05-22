@@ -40,7 +40,7 @@ ${BORG} create                                \
     --exclude "${WAREHOUSE}/Downloads"        \
     --exclude "${WAREHOUSE}/lost+found"       \
     --exclude "${WAREHOUSE}/Mailpile"         \
-    --exclude "${WAREHOUSE}/miniconda3"       \
+    --exclude "${WAREHOUSE}/miniforge-pypy3"  \
     --exclude "${WAREHOUSE}/vidyo"            \
     --exclude "${WAREHOUSE}/VirtualBoxVMs"    \
                                               \
