@@ -39,7 +39,7 @@ ${BORG} create                                                   \
     --exclude "${HOME}/.local/share/JetBrains"                   \
     --exclude "${HOME}/.local/share/Trash"                       \
     --exclude "${HOME}/.local/share/virtualenv"                  \
-    --exclude "${HOME}/.pixi"                                    \
+    --exclude "sh:**/.pixi/**"                                   \
     --exclude "${HOME}/.steam"                                   \
     --exclude "${HOME}/.vagrant.d"                               \
     --exclude "${HOME}/.var"                                     \
@@ -57,6 +57,7 @@ ${BORG} create                                                   \
     --exclude "${WAREHOUSE}/snap"                                \
     --exclude "${WAREHOUSE}/SteamLibrary"                        \
     --exclude "${WAREHOUSE}/VirtualBoxVMs"                       \
+                                                                 \
     ::'{hostname}-{now}'                                         \
     ${HOME}                                                      \
     ${WAREHOUSE}                                                 \

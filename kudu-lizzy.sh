@@ -37,7 +37,7 @@ ${BORG} create                                                   \
     --exclude "${HOME}/.local/share/flatpak*"                    \
     --exclude "${HOME}/.local/share/JetBrains"                   \
     --exclude "${HOME}/.PyCharm*/system"                         \
-    --exclude "${HOME}/.pixi"                                    \
+    --exclude "sh:**/.pixi/**"                                   \
     --exclude "${HOME}/.steam"                                   \
     --exclude "${HOME}/.vagrant.d"                               \
     --exclude "${HOME}/.var"                                     \
