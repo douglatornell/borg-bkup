@@ -53,13 +53,13 @@ backup_exit=$?
 info "Pruning repository"
 
 # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
-# archives of THIS machine. The '{hostname}-' prefix is very important to
+# archives of THIS machine. The -- glob-archives '{hostname}-' is very important to
 # limit prune's operation to this machine's archives and not apply to
 # other machines' archives also:
 
 ${BORG} prune                       \
     --list                          \
-    --prefix '{hostname}-'          \
+    --glob-archives '{hostname}-'   \
     --show-rc                       \
     --keep-daily    7               \
     --keep-weekly   4               \
